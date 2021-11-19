@@ -127,3 +127,9 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
+
+# Build outputs directory
+/build/
+
+# Code editor configuration
+/.vscode/
