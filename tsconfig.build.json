@@ -5,6 +5,7 @@
     "src/**/*.spec.ts"
   ],
   "include": [
+    "proto-gen",
     "src"
   ],
   "compilerOptions": {
@@ -12,6 +13,7 @@
     "outDir": "build",
     "module": "CommonJS",
     "noEmitHelpers": false,
+    "allowJs": true,
     "sourceMap": false,
     "declaration": false,
     "declarationMap": false,
