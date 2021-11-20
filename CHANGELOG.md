@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.3.0
+
+### Minor Changes
+
+- 98b9c1e: Add get game sales by rank endpoint
+
 ## 0.1.0
 
 ### Minor Changes
