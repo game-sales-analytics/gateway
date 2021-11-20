@@ -45,11 +45,14 @@ export namespace PingReply {
 }
 
 export class LoginWithEmailRequest extends jspb.Message { 
-
-    hasUser(): boolean;
-    clearUser(): void;
-    getUser(): LoginWithEmailRequest.User | undefined;
-    setUser(value?: LoginWithEmailRequest.User): LoginWithEmailRequest;
+    getEmail(): string;
+    setEmail(value: string): LoginWithEmailRequest;
+    getPassword(): string;
+    setPassword(value: string): LoginWithEmailRequest;
+    getIp(): string;
+    setIp(value: string): LoginWithEmailRequest;
+    getDeviceUserAgent(): string;
+    setDeviceUserAgent(value: string): LoginWithEmailRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): LoginWithEmailRequest.AsObject;
@@ -63,64 +66,11 @@ export class LoginWithEmailRequest extends jspb.Message {
 
 export namespace LoginWithEmailRequest {
     export type AsObject = {
-        user?: LoginWithEmailRequest.User.AsObject,
+        email: string,
+        password: string,
+        ip: string,
+        deviceUserAgent: string,
     }
-
-
-    export class User extends jspb.Message { 
-        getEmail(): string;
-        setEmail(value: string): User;
-        getPassword(): string;
-        setPassword(value: string): User;
-
-        hasContextualInfo(): boolean;
-        clearContextualInfo(): void;
-        getContextualInfo(): LoginWithEmailRequest.User.ContextualInfo | undefined;
-        setContextualInfo(value?: LoginWithEmailRequest.User.ContextualInfo): User;
-
-        serializeBinary(): Uint8Array;
-        toObject(includeInstance?: boolean): User.AsObject;
-        static toObject(includeInstance: boolean, msg: User): User.AsObject;
-        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-        static serializeBinaryToWriter(message: User, writer: jspb.BinaryWriter): void;
-        static deserializeBinary(bytes: Uint8Array): User;
-        static deserializeBinaryFromReader(message: User, reader: jspb.BinaryReader): User;
-    }
-
-    export namespace User {
-        export type AsObject = {
-            email: string,
-            password: string,
-            contextualInfo?: LoginWithEmailRequest.User.ContextualInfo.AsObject,
-        }
-
-
-        export class ContextualInfo extends jspb.Message { 
-            getIp(): string;
-            setIp(value: string): ContextualInfo;
-            getDeviceUserAgent(): string;
-            setDeviceUserAgent(value: string): ContextualInfo;
-
-            serializeBinary(): Uint8Array;
-            toObject(includeInstance?: boolean): ContextualInfo.AsObject;
-            static toObject(includeInstance: boolean, msg: ContextualInfo): ContextualInfo.AsObject;
-            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-            static serializeBinaryToWriter(message: ContextualInfo, writer: jspb.BinaryWriter): void;
-            static deserializeBinary(bytes: Uint8Array): ContextualInfo;
-            static deserializeBinaryFromReader(message: ContextualInfo, reader: jspb.BinaryReader): ContextualInfo;
-        }
-
-        export namespace ContextualInfo {
-            export type AsObject = {
-                ip: string,
-                deviceUserAgent: string,
-            }
-        }
-
-    }
-
 }
 
 export class LoginWithEmailReply extends jspb.Message { 
