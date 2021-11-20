@@ -1,8 +1,8 @@
 import fastify from 'fastify';
+import isNil from 'lodash.isnil';
 import { pino } from 'pino';
 import type { UsersServiceClient } from '../proto-gen/userssrv_grpc_pb';
-import handleLogin from './handlers/login/handle';
-import { isNil } from '.pnpm/@types+lodash@4.14.177/node_modules/@types/lodash';
+import { createHandler as createLoginHandler } from './handlers/login/handle';
 
 
 export interface Server {
@@ -33,7 +33,10 @@ export async function initialize(
   server.route({
     method: 'POST',
     url: '/auth/login',
-    handler: handleLogin,
+    handler: createLoginHandler({
+      usersService,
+      logger: server.log,
+    }),
   });
 
   return await Promise.resolve({
