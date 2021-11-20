@@ -2,6 +2,7 @@ import type {
   Schema,
   ValidationErrorItem as JoiValidationErrorItem,
 } from 'joi';
+import { ValidationError as JoiValidationError } from 'joi';
 import isNil from 'lodash.isnil';
 
 
@@ -94,6 +95,9 @@ const errorCodes: ErrorCodes = {
   'string.max': {
     code: 'ERR_MAX_LENGTH',
   },
+  'string.min': {
+    code: 'ERR_MIN_LENGTH',
+  },
   'string.pattern.name': {
     code: 'ERR_BAD_PATTERN',
   },
@@ -125,22 +129,22 @@ function mapJoiErrorToStandard(
   };
 }
 
-function validateOnSchema(
+export default async function validate(
   schema: Schema,
   value: unknown,
-): ValidationErrorItem[] | undefined {
-  const { error: errors } = schema.validate(value, {
-    abortEarly: false,
-    convert: false,
-    dateFormat: 'iso',
-    errors: { render: false },
-  });
-  return errors?.details.map(error => mapJoiErrorToStandard(error));
-}
-
-export default function validate(schema: Schema, value: unknown): void {
-  const errors = validateOnSchema(schema, value);
-  if (!isNil(errors)) {
-    throw new ValidationError(errors);
+): Promise<void> {
+  try {
+    await schema.validateAsync(value, {
+      abortEarly: false,
+      convert: false,
+      dateFormat: 'iso',
+      errors: { render: false },
+    });
+  } catch (error: unknown) {
+    if (error instanceof JoiValidationError) {
+      throw new ValidationError(
+        error.details.map(errorItem => mapJoiErrorToStandard(errorItem)),
+      );
+    }
   }
 }
