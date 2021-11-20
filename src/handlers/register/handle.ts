@@ -57,7 +57,6 @@ export function createHandler(
 
       await validate(schema, request.body);
     } catch (error: unknown) {
-      deps.logger.error(error, 'failed validating register form');
       if (error instanceof ValidationError) {
         await reply.status(StatusCodes.BAD_REQUEST).send({
           error: 'E_INVALID_FORM',

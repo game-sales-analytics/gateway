@@ -17,8 +17,9 @@
     "protos:gen": "npm-run-all --sequential protos:gen:js protos:gen:dts",
     "protos:gen:js": "grpc_tools_node_protoc -I=protos/ protos/*.proto --js_out=import_style=commonjs,binary:./proto-gen --grpc_out=grpc_js:./proto-gen --plugin=protoc-gen-grpc=$(which grpc_tools_node_protoc_plugin)",
     "protos:gen:dts": "protoc -I=protos protos/*.proto --plugin=protoc-gen-ts=$(which protoc-gen-ts) --ts_out=grpc_js:./proto-gen",
-    "syncprotos": "npm-run-all --sequential --silent protos:sync:userssrv",
-    "protos:sync:userssrv": "curl https://raw.githubusercontent.com/game-sales-analytics/userssrv/main/api/userssrv.proto -o protos/userssrv.proto"
+    "syncprotos": "npm-run-all --parallel --silent protos:sync:userssrv protos:sync:coresrv",
+    "protos:sync:userssrv": "curl https://raw.githubusercontent.com/game-sales-analytics/userssrv/main/api/userssrv.proto -o protos/userssrv.proto",
+    "protos:sync:coresrv": "curl https://raw.githubusercontent.com/game-sales-analytics/coresrv/main/api/coresrv.proto -o protos/coresrv.proto"
   },
   "repository": {
     "type": "git",
