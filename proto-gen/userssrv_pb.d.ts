@@ -134,11 +134,16 @@ export namespace LoginWithEmailReply {
 }
 
 export class RegisterRequest extends jspb.Message { 
-
-    hasForm(): boolean;
-    clearForm(): void;
-    getForm(): RegisterRequest.Form | undefined;
-    setForm(value?: RegisterRequest.Form): RegisterRequest;
+    getFirstName(): string;
+    setFirstName(value: string): RegisterRequest;
+    getLastName(): string;
+    setLastName(value: string): RegisterRequest;
+    getEmail(): string;
+    setEmail(value: string): RegisterRequest;
+    getPassword(): string;
+    setPassword(value: string): RegisterRequest;
+    getPasswordConfirmation(): string;
+    setPasswordConfirmation(value: string): RegisterRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): RegisterRequest.AsObject;
@@ -152,42 +157,12 @@ export class RegisterRequest extends jspb.Message {
 
 export namespace RegisterRequest {
     export type AsObject = {
-        form?: RegisterRequest.Form.AsObject,
+        firstName: string,
+        lastName: string,
+        email: string,
+        password: string,
+        passwordConfirmation: string,
     }
-
-
-    export class Form extends jspb.Message { 
-        getFirstName(): string;
-        setFirstName(value: string): Form;
-        getLastName(): string;
-        setLastName(value: string): Form;
-        getEmail(): string;
-        setEmail(value: string): Form;
-        getPassword(): string;
-        setPassword(value: string): Form;
-        getPasswordConfirmation(): string;
-        setPasswordConfirmation(value: string): Form;
-
-        serializeBinary(): Uint8Array;
-        toObject(includeInstance?: boolean): Form.AsObject;
-        static toObject(includeInstance: boolean, msg: Form): Form.AsObject;
-        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-        static serializeBinaryToWriter(message: Form, writer: jspb.BinaryWriter): void;
-        static deserializeBinary(bytes: Uint8Array): Form;
-        static deserializeBinaryFromReader(message: Form, reader: jspb.BinaryReader): Form;
-    }
-
-    export namespace Form {
-        export type AsObject = {
-            firstName: string,
-            lastName: string,
-            email: string,
-            password: string,
-            passwordConfirmation: string,
-        }
-    }
-
 }
 
 export class RegisterReply extends jspb.Message { 
