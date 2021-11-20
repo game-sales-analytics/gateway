@@ -30,7 +30,6 @@
     "noLib": false,
     "module": "ESNext",
     "moduleResolution": "node",
-    "baseUrl": ".",
     "typeRoots": [
       "node_modules/@types"
     ],
