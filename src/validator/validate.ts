@@ -65,6 +65,9 @@ const errorCodes: ErrorCodes = {
   'object.unknown': {
     code: 'ERR_UNKNOWN_KEY',
   },
+  'object.with': {
+    code: 'ERR_MISSING_PAIR',
+  },
   'string.base': {
     code: 'ERR_BAD_TYPE',
   },

@@ -3,6 +3,7 @@ import isNil from 'lodash.isnil';
 import { pino } from 'pino';
 import type { UsersServiceClient } from '../proto-gen/userssrv_grpc_pb';
 import { createHandler as createLoginHandler } from './handlers/login/handle';
+import { createHandler as createRegisterHandler } from './handlers/register/handle';
 
 
 export interface Server {
@@ -34,6 +35,15 @@ export async function initialize(
     method: 'POST',
     url: '/auth/login',
     handler: createLoginHandler({
+      usersService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'POST',
+    url: '/auth/register',
+    handler: createRegisterHandler({
       usersService,
       logger: server.log,
     }),
