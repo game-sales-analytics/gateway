@@ -19,7 +19,6 @@ extends:
   - "plugin:unicorn/recommended"
   - "plugin:optimize-regex/all"
   - "plugin:array-func/recommended"
-  - "standard"
   - "xo"
   - "plugin:regexp/recommended"
   - "plugin:node/recommended-module"
@@ -388,6 +387,7 @@ rules:
       tabWidth: 2
       ignoreStrings: true
       ignoreTemplateLiterals: true
+      ignoreRegExpLiterals: true
   linebreak-style:
     - error
     - unix
