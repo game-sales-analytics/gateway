@@ -10,6 +10,9 @@ import {
   createHandler as createGetGameSalesByRankHandler,
 } from './handlers/get-game-sales-by-rank/handle';
 import {
+  createHandler as createGetGameSalesWithMoreSalesInEuThanNaHandler,
+} from './handlers/get-game-sales-with-more-sales-in-eu-than-na/handle';
+import {
   createHandler as createGetTopNGamesOfGenreHandler,
 } from './handlers/get-top-n-games-of-genre/handle';
 import {
@@ -110,6 +113,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/5-most-sold-of-year-and-platform',
     handler: createGet5MostSoldGamesByYearAndPlatformHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/more-sales-in-eu-than-na',
+    handler: createGetGameSalesWithMoreSalesInEuThanNaHandler({
       coreService,
       logger: server.log,
     }),
