@@ -10,6 +10,9 @@ import {
   createHandler as createGetTopNGamesOfGenreHandler,
 } from './handlers/get-top-n-games-of-genre/handle';
 import {
+  createHandler as createGetTopNGamesOfYearHandler,
+} from './handlers/get-top-n-games-of-year/handle';
+import {
   createHandler as createLoginHandler,
 } from './handlers/login/handle';
 import {
@@ -86,6 +89,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/top-in-genre',
     handler: createGetTopNGamesOfGenreHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/top-in-year',
+    handler: createGetTopNGamesOfYearHandler({
       coreService,
       logger: server.log,
     }),
