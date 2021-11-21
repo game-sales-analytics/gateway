@@ -28,6 +28,9 @@ import {
   createHandler as createGetTotalPublishersGameSalesInYearsRangeHandler,
 } from './handlers/get-total-publishers-game-sales-in-years-range/handle';
 import {
+  createHandler as createGetYearlyTotalGameSalesInRangeHandler,
+} from './handlers/get-yearly-total-game-sales-in-range/handle';
+import {
   createHandler as createLoginHandler,
 } from './handlers/login/handle';
 import {
@@ -158,6 +161,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/publisher-sales-in-years-range',
     handler: createGetTotalPublishersGameSalesInYearsRangeHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/yearly-total-sales-in-range',
+    handler: createGetYearlyTotalGameSalesInRangeHandler({
       coreService,
       logger: server.log,
     }),
