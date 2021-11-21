@@ -1,5 +1,5 @@
-import { credentials } from '@grpc/grpc-js';
 import { format } from 'node:util';
+import { credentials } from '@grpc/grpc-js';
 import { UsersServiceClient } from '../../proto-gen/userssrv_grpc_pb';
 import { PingRequest } from '../../proto-gen/userssrv_pb';
 

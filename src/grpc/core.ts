@@ -1,6 +1,6 @@
+import { format } from 'node:util';
 import { credentials, Metadata } from '@grpc/grpc-js';
 import { Status } from '@grpc/grpc-js/build/src/constants';
-import { format } from 'node:util';
 import { CoreServiceClient } from '../../proto-gen/coresrv_grpc_pb';
 import { PingRequest } from '../../proto-gen/coresrv_pb';
 
