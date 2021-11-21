@@ -1,4 +1,4 @@
-name: Build
+name: Verify
 on:
   pull_request:
   push:
@@ -7,7 +7,26 @@ on:
     tags:
       - "v[0-9]+.[0-9]+.[0-9]+"
 jobs:
-  main:
+  lint:
+    runs-on: ubuntu-20.04
+    concurrency:
+      cancel-in-progress: false
+      group: ${{ format('{0}-{1}', github.event_name, github.ref_name) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+      - name: Install NPM
+        run: npm install --global npm@8
+      - name: Install pnpm
+        run: npm install --global pnpm@6
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Lint
+        run: pnpm run lint
+  build:
     runs-on: ubuntu-20.04
     concurrency:
       cancel-in-progress: false
