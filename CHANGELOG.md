@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.11.0
+
+### Minor Changes
+
+- 0711375: Add Get Total Game Sales In Years Range By Genre API
+
 ## 0.10.0
 
 ### Minor Changes
