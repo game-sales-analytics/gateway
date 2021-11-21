@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.6.0
+
+### Minor Changes
+
+- 294eb1c: Add get top n games of year endpoint
+
 ## 0.5.0
 
 ### Minor Changes
