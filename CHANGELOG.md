@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.5.0
+
+### Minor Changes
+
+- 6fc0dfc: Add get games in genre endpoint
+
 ## 0.4.0
 
 ### Minor Changes
