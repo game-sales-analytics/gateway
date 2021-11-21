@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.7.0
+
+### Minor Changes
+
+- 319ff35: Add get 5 most sold games by year and platform endpoint
+
 ## 0.6.0
 
 ### Minor Changes
