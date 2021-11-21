@@ -126,7 +126,7 @@ export function createHandler(
         const responseObject = response.toObject(false);
         return await reply
           .status(StatusCodes.OK)
-          .send({ games: responseObject });
+          .send({ games: responseObject.itemsList });
       });
   }
 
