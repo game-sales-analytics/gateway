@@ -16,6 +16,9 @@ import {
   createHandler as createGetTopNGamesOfGenreHandler,
 } from './handlers/get-top-n-games-of-genre/handle';
 import {
+  createHandler as createGetTopNGamesOfPlatformsHandler,
+} from './handlers/get-top-n-games-of-platforms/handle';
+import {
   createHandler as createGetTopNGamesOfYearHandler,
 } from './handlers/get-top-n-games-of-year/handle';
 import {
@@ -122,6 +125,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/more-sales-in-eu-than-na',
     handler: createGetGameSalesWithMoreSalesInEuThanNaHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/top-n-games-of-platforms',
+    handler: createGetTopNGamesOfPlatformsHandler({
       coreService,
       logger: server.log,
     }),
