@@ -1,5 +1,12 @@
 # gsa-gateway
 
+## 0.10.0
+
+### Minor Changes
+
+- 58113a9: Add publisher sales in years range endpoint
+- a8b4291: Add get-yearly-total-game-sales-in-range endpoint
+
 ## 0.9.0
 
 ### Minor Changes
