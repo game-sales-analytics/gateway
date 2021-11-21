@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.9.0
+
+### Minor Changes
+
+- 8547c52: Add game sales in ids endpoint
+
 ## 0.8.0
 
 ### Minor Changes
