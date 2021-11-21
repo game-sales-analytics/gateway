@@ -101,6 +101,9 @@ const errorCodes: ErrorCodes = {
   'string.min': {
     code: 'ERR_MIN_LENGTH',
   },
+  'string.pattern.base': {
+    code: 'ERR_BAD_PATTERN',
+  },
   'string.pattern.name': {
     code: 'ERR_BAD_PATTERN',
   },
