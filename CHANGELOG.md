@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 0.4.0
+
+### Minor Changes
+
+- eb8b1a7: Add search game sales by name endpoint
+
 ## 0.3.0
 
 ### Minor Changes
