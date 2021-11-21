@@ -4,6 +4,9 @@ import { pino } from 'pino';
 import type { CoreServiceClient } from '../proto-gen/coresrv_grpc_pb';
 import type { UsersServiceClient } from '../proto-gen/userssrv_grpc_pb';
 import {
+  createHandler as createGet5MostSoldGamesByYearAndPlatformHandler,
+} from './handlers/get-5-most-sold-games-by-year-and-platform/handle';
+import {
   createHandler as createGetGameSalesByRankHandler,
 } from './handlers/get-game-sales-by-rank/handle';
 import {
@@ -98,6 +101,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/top-in-year',
     handler: createGetTopNGamesOfYearHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/5-most-sold-of-year-and-platform',
+    handler: createGet5MostSoldGamesByYearAndPlatformHandler({
       coreService,
       logger: server.log,
     }),
