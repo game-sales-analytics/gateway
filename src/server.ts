@@ -7,6 +7,9 @@ import {
   createHandler as createGetGameSalesByRankHandler,
 } from './handlers/get-game-sales-by-rank/handle';
 import {
+  createHandler as createGetTopNGamesOfGenreHandler,
+} from './handlers/get-top-n-games-of-genre/handle';
+import {
   createHandler as createLoginHandler,
 } from './handlers/login/handle';
 import {
@@ -74,6 +77,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/by-name',
     handler: createSearchGameSalesByNameHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/top-in-genre',
+    handler: createGetTopNGamesOfGenreHandler({
       coreService,
       logger: server.log,
     }),
