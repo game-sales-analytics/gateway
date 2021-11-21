@@ -1,5 +1,12 @@
 # gsa-gateway
 
+## 0.8.0
+
+### Minor Changes
+
+- 521bf90: Add get top n games of platforms
+- 81b5f11: Add Get Game Sales With More Sales In EU Than NA endpoint
+
 ## 0.7.0
 
 ### Minor Changes
