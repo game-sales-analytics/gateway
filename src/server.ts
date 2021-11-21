@@ -25,6 +25,9 @@ import {
   createHandler as createGetTopNGamesOfYearHandler,
 } from './handlers/get-top-n-games-of-year/handle';
 import {
+  createHandler as createGetTotalGameSalesInYearsRangeByGenreHandler,
+} from './handlers/get-total-game-sales-in-years-range-by-genre/handle';
+import {
   createHandler as createGetTotalPublishersGameSalesInYearsRangeHandler,
 } from './handlers/get-total-publishers-game-sales-in-years-range/handle';
 import {
@@ -170,6 +173,15 @@ export async function initialize(
     method: 'GET',
     url: '/games/yearly-total-sales-in-range',
     handler: createGetYearlyTotalGameSalesInRangeHandler({
+      coreService,
+      logger: server.log,
+    }),
+  });
+
+  server.route({
+    method: 'GET',
+    url: '/games/total-game-sales-in-years-range-by-genre',
+    handler: createGetTotalGameSalesInYearsRangeByGenreHandler({
       coreService,
       logger: server.log,
     }),
