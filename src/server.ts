@@ -1,8 +1,8 @@
 import fastify from 'fastify';
 import isNil from 'lodash.isnil';
-import { pino } from 'pino';
 import type { CoreServiceClient } from '../proto-gen/coresrv_grpc_pb';
 import type { UsersServiceClient } from '../proto-gen/userssrv_grpc_pb';
+import createLogger from './create-logger';
 import {
   createHandler as createGet5MostSoldGamesByYearAndPlatformHandler,
 } from './handlers/get-5-most-sold-games-by-year-and-platform/handle';
@@ -54,19 +54,7 @@ export async function initialize(
   coreService: CoreServiceClient,
 ): Promise<Server> {
   const server = fastify({
-    logger: pino({
-      transport: {
-        target: 'pino-pretty',
-        options: {
-          colorize: true,
-          crlf: false,
-          levelFirst: true,
-          translateTime: true,
-        },
-      },
-      timestamp: pino.stdTimeFunctions.isoTime,
-      level: 'trace',
-    }),
+    logger: createLogger(),
   });
 
 
@@ -185,6 +173,15 @@ export async function initialize(
       coreService,
       logger: server.log,
     }),
+  });
+
+  process.on('SIGTERM', () => {
+    usersService.close();
+    coreService.close();
+    server.close(() => {
+      // eslint-disable-next-line no-process-exit
+      process.exit(0);
+    });
   });
 
   return await Promise.resolve({
