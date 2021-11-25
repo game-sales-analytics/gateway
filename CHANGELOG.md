@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.1.0
+
+### Minor Changes
+
+- deda03f: Add PM2 to manage production docker image processes and clustering
+
 ## 1.0.2
 
 ### Patch Changes
