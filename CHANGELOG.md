@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.0.2
+
+### Patch Changes
+
+- 0d84a62: Fix build docker image docker hub repository address
+
 ## 1.0.1
 
 ### Patch Changes

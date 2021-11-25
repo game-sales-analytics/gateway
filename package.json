@@ -1,6 +1,6 @@
 {
   "name": "gsa-gateway",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": " Game Sales Analytics Gateway Service",
   "main": "index.js",
   "scripts": {
