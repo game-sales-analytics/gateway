@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.2.0
+
+### Minor Changes
+
+- b772bb0: Add ping request handler
+
 ## 1.1.0
 
 ### Minor Changes
