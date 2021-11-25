@@ -37,6 +37,9 @@ import {
   createHandler as createLoginHandler,
 } from './handlers/login/handle';
 import {
+  createHandler as createPingHandler,
+} from './handlers/ping/handle';
+import {
   createHandler as createRegisterHandler,
 } from './handlers/register/handle';
 import {
@@ -57,6 +60,14 @@ export async function initialize(
     logger: createLogger(),
   });
 
+
+  server.route({
+    method: 'GET',
+    url: '/ping',
+    handler: createPingHandler({
+      logger: server.log,
+    }),
+  });
 
   server.route({
     method: 'POST',
