@@ -58,7 +58,7 @@ jobs:
           push: true
           pull: true
           context: .
-          file: build/Dockerfile
+          file: Dockerfile
           no-cache: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
