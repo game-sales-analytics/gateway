@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.0.1
+
+### Patch Changes
+
+- 14f7c4b: Fix GitHub Actions Build and publish docker image workflow configuration
+
 ## 1.0.0
 
 ### Major Changes
