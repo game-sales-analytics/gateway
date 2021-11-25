@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.0.0
+
+### Major Changes
+
+- fe29fb2: Add docker image
+
 ## 0.11.0
 
 ### Minor Changes
