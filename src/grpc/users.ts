@@ -20,6 +20,7 @@ export async function connect(
   return await new Promise((resolve, reject) => {
     client.ping(new PingRequest(), error => {
       if (null !== error) {
+        console.error('failed pinging users service at: %s:%s', config.host, config.port);
         return reject(error);
       }
 

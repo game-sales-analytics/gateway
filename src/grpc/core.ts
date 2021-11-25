@@ -23,6 +23,7 @@ export async function connect(
     metaData.add('auth', 'asd');
     client.ping(new PingRequest(), metaData, error => {
       if (null !== error && error.code !== Status.UNAUTHENTICATED) {
+        console.error('failed pinging core service at: %s:%s', config.host, config.port);
         return reject(error);
       }
 
