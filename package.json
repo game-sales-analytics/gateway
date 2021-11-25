@@ -10,7 +10,7 @@
     "build": "npm-run-all --silent --sequential clean transpile copy-manifests",
     "clean": "rimraf build",
     "transpile": "tsc --project tsconfig.build.json",
-    "copy-manifests": "cpy package.json pnpm-lock.yaml build",
+    "copy-manifests": "cpy package.json pnpm-lock.yaml ecosystem.config.json build",
     "genprotos": "npm-run-all --sequential --silent protos:clean protos:mkdirp protos:gen",
     "protos:clean": "rimraf proto-gen",
     "protos:mkdirp": "mkdirp proto-gen",

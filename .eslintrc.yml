@@ -406,7 +406,7 @@ rules:
     - off
   filenames/match-regex:
     - error
-    - "^global\\.d$|^[a-z-]+$|\\.spec$"
+    - "^ecosystem\\.config$|^[a-z-]+$|^global\\.d$|^[a-z-]+$|\\.spec$"
     - true
   filenames/match-exported:
     - error
