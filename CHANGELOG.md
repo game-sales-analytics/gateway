@@ -1,5 +1,11 @@
 # gsa-gateway
 
+## 1.3.0
+
+### Minor Changes
+
+- 9728c8d: Upgrade outdated dependencies
+
 ## 1.2.0
 
 ### Minor Changes
